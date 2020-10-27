@@ -1,0 +1,83 @@
+@charset "UTF-8";
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font: normal 16px sans-serif;
+  padding: 40px 0;
+  background: #efefef;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  body .container {
+    width: 50%;
+    margin: 50px auto auto;
+    padding: 2rem 1rem;
+    text-align: center;
+    -webkit-box-shadow: 0px 10px 30px 0px #3f3f3f;
+    box-shadow: 0px 10px 30px 0px #3f3f3f;
+    border: 2px solid #3664F4; }
+    body .container h1 {
+      text-transform: uppercase;
+      letter-spacing: 0.4rem;
+      font-size: 2.35rem;
+      color: #3664F4; }
+    body .container form {
+      margin: 2rem 0; }
+      body .container form #item {
+        padding: 0 1rem;
+        font-size: 1.3rem;
+        height: 50px;
+        outline: none;
+        border-color: #3664F4; }
+    body .container #list {
+      text-align: left; }
+      body .container #list li {
+        list-style: none;
+        padding: 0.7rem;
+        position: relative;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #070D1F; }
+        body .container #list li::before {
+          content: "✽";
+          padding: 0.6rem;
+          font-size: 1.3rem;
+          color: #3664F4; }
+        body .container #list li:hover::after {
+          content: " (terminé)";
+          opacity: 0;
+          font-size: 1.1rem;
+          color: #fd4a1d;
+          font-style: italic;
+          -webkit-animation: pseudoClassAnim 1s forwards;
+          animation: pseudoClassAnim 1s forwards; }
+      body .container #list .checked:before {
+        content: "✔";
+        padding: 10px 10px;
+        font-size: 1.1rem;
+        color: #3664F4; }
+      body .container #list .checked:hover:after {
+        content: " (supprimer)";
+        font-size: 1.1rem;
+        color: #3664F4;
+        opacity: 0; }
+
+@-webkit-keyframes pseudoClassAnim {
+  to {
+    opacity: 1; } }
+
+@keyframes pseudoClassAnim {
+  to {
+    opacity: 1; } }

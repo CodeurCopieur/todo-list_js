@@ -1,0 +1,101 @@
+*, ::before, ::after {
+  margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+$first-color: #3664F4;
+$dark-color: #070D1F;
+$dark-color-alt: #282B3A;
+$white-color: #E6E7E9;
+
+body {
+	font: normal 16px sans-serif;
+	padding: 40px 0;
+	background: #efefef;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.container {
+		width: 50%;
+		margin: 50px auto auto;
+		padding: 2rem 1rem;
+		text-align: center;
+		box-shadow: 0px 10px 30px 0px #3f3f3f;
+		border: 2px solid $first-color;
+
+		h1 {
+			text-transform: uppercase;
+			letter-spacing: 0.4rem;
+			font-size: 2.35rem;
+			color: $first-color;
+		}
+
+		form {
+			margin: 2rem 0;
+			#item {
+				padding: 0 1rem;
+				font-size: 1.3rem;
+				height: 50px;
+				outline: none;
+				border-color: $first-color;
+			}
+		}
+
+		#list {
+
+			text-align: left;
+
+			li {
+				list-style: none;
+				padding: 0.7rem;
+				position: relative;
+				font-size: 1.2rem;
+				cursor: pointer;
+				color: $dark-color;
+
+				&::before {
+						content: "✽";
+						padding: 0.6rem;
+						font-size: 1.3rem;
+						color: $first-color;
+				}
+
+					&:hover {
+
+							&::after {
+								content: " (terminé)";
+								opacity: 0;
+								font-size: 1.1rem;
+								color: #fd4a1d;
+								font-style: italic;
+								animation: pseudoClassAnim 1s forwards;
+							}
+					}
+			}
+
+			.checked:before {
+				content: "✔";
+				padding: 10px 10px;
+				font-size: 1.1rem;
+				color: $first-color;
+			}
+
+			.checked:hover:after {
+				content: " (supprimer)";
+				font-size: 1.1rem;
+				color: $first-color;
+				opacity: 0;
+			}
+
+			@keyframes pseudoClassAnim {
+				to {
+					opacity: 1;
+				}
+			}
+		}
+	}
+  
+}
